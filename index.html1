@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Strong Girl 💕</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .container {
+        background: white;
+        width: 90%;
+        max-width: 420px;
+        padding: 30px;
+        border-radius: 22px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        text-align: center;
+        animation: fadeIn 1s ease;
+    }
+
+    .slide {
+        display: none;
+        animation: slideIn 0.6s ease;
+    }
+
+    .slide.active {
+        display: block;
+    }
+
+    h1 {
+        color: #ff5c8a;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #555;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .emoji {
+        font-size: 40px;
+        margin: 15px 0;
+    }
+
+    ul {
+        text-align: left;
+        color: #555;
+        padding-left: 20px;
+        font-size: 15px;
+    }
+
+    ul li {
+        margin-bottom: 8px;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        background: #ff5c8a;
+        border: none;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 25px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    button:disabled {
+        background: #ffc1d3;
+        cursor: not-allowed;
+    }
+
+    button:hover:not(:disabled) {
+        background: #ff3d73;
+    }
+
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Slide 1 -->
+    <div class="slide active">
+        <h1>Hello Sanchiiiiiiii 💕</h1>
+        <div class="emoji">🌸</div>
+        <p>
+            I know these days are not easy.<br>
+            Your body feels tired and heavy.
+        </p>
+        <p>
+            But even now — you are amazing and beautiful🥰.
+        </p>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+        <h1>You’re Allowed to Rest 🤍</h1>
+        <div class="emoji">🛌</div>
+        <p>
+            Slow down. Cancel plans.<br>
+            No need to do work and push yourself hard.<br>
+            Wrap yourself in comfort.
+        </p>
+        <p>
+            Resting is self-love.
+        </p>
+    </div>
+
+    <!-- Slide 3 (NEW) -->
+    <div class="slide">
+        <h1>Gentle Care Tips 🩸💗</h1>
+        <div class="emoji">🫶</div>
+        <ul>
+            <li>Drink warm water or herbal tea ☕</li>
+            <li>Use a heating pad for cramps 🔥</li>
+            <li>Eat light & nourishing food 🥣</li>
+            <li>Stretch gently or just relax 🧘‍♀️</li>
+            <li>Sleep without guilt 😴</li>
+            <li>Talk to me whenever you feel low 💬</li>
+        </ul>
+        <p>
+            Be extra gentle with yourself today🥺.
+        </p>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+        <h1>You Are So Strong 💪</h1>
+        <div class="emoji">❤️</div>
+        <p>
+            Even while in pain,<br>
+            you still shine ✨.
+        </p>
+        <p>
+            I admire you endlessly🤌🏻🛐.
+        </p>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+        <h1>I’m Right Here 🤗</h1>
+        <div class="emoji">🫂</div>
+        <p>           
+            Every cramp.<br>
+            Every pain.<br>
+            Every mood.<br>
+            Every tear.
+        </p>
+        <p>
+            You'll never be alone.
+        </p>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide">
+        <h1>For You,I am always here 💖</h1>
+        <div class="emoji">💗</div>
+        <p>
+            You are loved🥰.<br>
+            You are cherished✨.<br>
+            You are enough🤌🏻.
+        </p>
+        <button onclick="hug()">Tap for a hug 🤍</button>
+    </div>
+
+    <div class="buttons">
+        <button onclick="prevSlide()" id="prevBtn" disabled>← Back</button>
+        <button onclick="nextSlide()" id="nextBtn">Next →</button>
+    </div>
+
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === slides.length - 1;
+    }
+
+    function nextSlide() {
+        if (currentSlide < slides.length - 1) {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+    }
+
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+    }
+
+    function hug() {
+        alert("This is the softest hug just for you 🤗💗\nI love you so much my babyyyyyyy 🫶🏻❤️✨.");
+    }
+</script>
+
+</body>
+</html>
